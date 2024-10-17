@@ -25,3 +25,29 @@ I had problems training the model, because the dataset had a strong imbalance in
 - Better adjustment of the lost function
 - Add one-two layers on top of BERT (change model structure)
 - Using CUDA torch for better performance
+
+## Task 2
+
+### Assigment 
+Compare 2 image by keypoints
+
+### Target
+Return concat images with joint keypoints
+
+### Dataset
+The dataset that you provide doesn't match for this type of assigment, cause kaggle dataset provides from this [research](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9241044)
+
+### Solving
+- Use SuperPoint for keypoint detection
+- Compare descriptors by cv2
+- Return concat image
+
+### Problem
+It was really hard to me to create model for this task, because this need no linear dense on the start.
+Also, that size of image too big for standard model training
+
+### Improvements
+- Use different model for keypoint detection such as [Keypoint-RCNN](https://pytorch.org/vision/main/models/keypoint_rcnn.html?ref=blog.roboflow.com), [CenterNet](https://github.com/xingyizhou/CenterNet?ref=blog.roboflow.com), [D2Net](https://github.com/mihaidusmanu/d2-net) or [YOLO](https://blog.roboflow.com/guide-to-yolo-models/) with fine-tuning
+- Use algorithm for keypoint such as [SAR-SIFT](https://github.com/cfgnunes/sar-sift) or SIFT based
+- Satellite models can be found [here](https://github.com/satellite-image-deep-learning/techniques)
+- For image resizing we can use different methods from cv2, [docs](https://docs.opencv.org/4.x/da/d54/group__imgproc__transform.html#ga47a974309e9102f5f08231edc7e7529d)
